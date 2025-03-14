@@ -21,36 +21,33 @@ public class ControllerGeral {
     
     @GetMapping
     public ModelAndView home() {
-        ModelAndView mv = new ModelAndView("paginas/home");
-        for (var a : serviceGeral.realizarConsulta2()) {
-            System.out.println(a);
-        }
+        ModelAndView mv = new ModelAndView("home");
         return mv;
     }
-    /*
+    
     @GetMapping("consulta1")
     public ModelAndView consulta1() {
-        ModelAndView mv = new ModelAndView("");
+        ModelAndView mv = new ModelAndView("consulta1");
+        mv.addObject("clientes", serviceGeral.realizarConsulta1());
         return mv;
     }
 
     @GetMapping("consulta2")
     public ModelAndView consulta2() {
-        ModelAndView mv = new ModelAndView("");
+        ModelAndView mv = new ModelAndView("consulta2");
+        mv.addObject("clientes", serviceGeral.realizarConsulta2());
         return mv;
     }
 
     @GetMapping("consulta3")
     public ModelAndView consulta3() {
-        ModelAndView mv = new ModelAndView("");
+        ModelAndView mv = new ModelAndView("consulta3");
         return mv;
     }
 
     @GetMapping("consulta4")
     public ModelAndView consulta4() {
-        ModelAndView mv = new ModelAndView("");
+        ModelAndView mv = new ModelAndView("consulta4");
         return mv;
     }
-    */
-    
 }
