@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agencia Bancaria</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section>
+        <h1>Consulta 2</h1>
+        <p><b>Descrição: </b>Ache os nomes de todos os clientes que moram na mesma rua e na mesma cidade de Smith.</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="nome: ${clientes}">
+                    <td th:text="${nome}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agencia Bancaria</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section>
+        <h1>Consulta 1</h1>
+        <p><b>Descrição: </b>Ache todos os clientes do banco que possuem uma conta, mas não um empréstimo.</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Endereço</th>
+                    <th>Cidade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="cliente: ${clientes}">
+                    <td th:text="${cliente.nomecliente}"></td>
+                    <td th:text="${cliente.enderecocliente}"></td>
+                    <td th:text="${cliente.cidadecliente}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</body>
+</html>
