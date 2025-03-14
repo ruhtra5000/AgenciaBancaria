@@ -20,4 +20,8 @@ public class ServiceGeral {
     public List<Cliente> realizarConsulta1() {
         return clienteRepository.consulta1();
     }
+
+    public List<String> realizarConsulta2() {
+        return clienteRepository.consulta2();
+    }
 }

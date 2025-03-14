@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import agencia.agencia.service.ServiceGeral;
-import org.springframework.web.bind.annotation.RequestParam;
-
 
 /*
  * Controlador geral da aplicação
@@ -22,12 +20,12 @@ public class ControllerGeral {
     private ServiceGeral serviceGeral;
     
     @GetMapping
-    public String home() {
-        /*ModelAndView mv = new ModelAndView("home");*/
-        for (var a : serviceGeral.realizarConsulta1()) {
-            System.out.println(a.getNomecliente());
+    public ModelAndView home() {
+        ModelAndView mv = new ModelAndView("paginas/home");
+        for (var a : serviceGeral.realizarConsulta2()) {
+            System.out.println(a);
         }
-        return "home";
+        return mv;
     }
     /*
     @GetMapping("consulta1")
