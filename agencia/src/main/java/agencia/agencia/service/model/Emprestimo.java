@@ -1,5 +1,7 @@
 package agencia.agencia.service.model;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
@@ -9,6 +11,7 @@ public class Emprestimo {
     @Id
     private int numero;
     private double valor;
+    private LocalDate dataEmprestimo;
 
     @ManyToOne
     private Agencia agencia;
@@ -16,10 +19,11 @@ public class Emprestimo {
     public Emprestimo() {
     }
 
-    public Emprestimo(int numero, double valor, Agencia agencia) {
+    public Emprestimo(int numero, double valor, Agencia agencia, LocalDate dataEmprestimo) {
         this.numero = numero;
         this.valor = valor;
         this.agencia = agencia;
+        this.dataEmprestimo = dataEmprestimo;
     }
 
     public int getNumero() {
@@ -44,6 +48,14 @@ public class Emprestimo {
 
     public void setAgencia(Agencia agencia) {
         this.agencia = agencia;
+    }
+
+    public LocalDate getDataEmprestimo() {
+        return dataEmprestimo;
+    }
+
+    public void setDataEmprestimo(LocalDate dataEmprestimo) {
+        this.dataEmprestimo = dataEmprestimo;
     }
 
 }
