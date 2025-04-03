@@ -3,6 +3,7 @@ package agencia.agencia.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -39,9 +40,10 @@ public class ControllerGeral {
         return mv;
     }
 
-    @GetMapping("consulta3")
-    public ModelAndView consulta3() {
+    @GetMapping("consulta3/{nomecliente}")
+    public ModelAndView consulta3(@PathVariable("nomecliente") String nomecliente) {
         ModelAndView mv = new ModelAndView("consulta3");
+        mv.addObject("transacoes", serviceGeral.realizarConsulta3(nomecliente));
         return mv;
     }
 
