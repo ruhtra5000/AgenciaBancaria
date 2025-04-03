@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import agencia.agencia.repository.ClienteRepository;
 import agencia.agencia.repository.DepositoRepository;
+import agencia.agencia.repository.HistoricoTransacoesRepository;
 import agencia.agencia.service.model.Cliente;
 
 /*
@@ -22,12 +23,20 @@ public class ServiceGeral {
     @Autowired
     private DepositoRepository depositoRepository;
 
+    @Autowired
+    private HistoricoTransacoesRepository historicoTransacoesRepository;
+
     public List<Cliente> realizarConsulta1() {
         return clienteRepository.consulta1();
     }
 
     public List<String> realizarConsulta2() {
         return clienteRepository.consulta2();
+    }
+    
+    public List<Object[]> realizarConsulta3(String nomecliente) {
+        return historicoTransacoesRepository.consulta3(nomecliente);
+
     }
 
     public List<Object[]> realizarConsulta4() {

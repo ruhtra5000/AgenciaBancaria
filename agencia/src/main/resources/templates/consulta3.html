@@ -5,8 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="file.css">
     <title>Agencia Bancaria</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <section>
     <h1>Consulta 3</h1>
+    <p><b>Descrição: </b>Histórico de transações</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nome do Cliente</th>
+                <th>Número da Conta</th>
+                <th>Data da Transação</th>
+                <th>Valor</th>
+                <th>Tipo de Transação</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="transacao : ${transacoes}">
+                <td th:text="${transacao[1]}"></td>
+                <td th:text="${transacao[2]}"></td>
+                <td th:text="${transacao[3]}"></td>
+                <td th:text="${transacao[4]}"></td>
+                <td th:text="${transacao[5]}"></td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>
