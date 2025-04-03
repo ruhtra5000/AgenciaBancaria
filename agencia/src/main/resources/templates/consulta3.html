@@ -44,8 +44,8 @@
             </thead>
             <tbody th:if="${not #lists.isEmpty(transacoes)}">
                 <tr th:each="transacao : ${transacoes}">
-                    <td th:text="${transacao[3]}"></td>
-                    <td th:text="${transacao[4]}"></td>
+                    <td th:text="${#dates.format(transacao[3], 'dd/MM/yyyy')}"></td>
+                    <td th:inline="text">R$ [[${#numbers.formatDecimal(transacao[4], 0, 'COMMA', 2, 'POINT')}]]</td>
                     <td th:text="${transacao[5]}"></td>
                 </tr>
             </tbody>
