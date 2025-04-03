@@ -78,3 +78,28 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+
+    /* Estilização do input de texto */
+    input[type="text"] {
+        width: 100%;
+        /* Ocupará toda a largura disponível */
+        max-width: 400px;
+        /* Máximo de 400px para não ficar muito grande */
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        outline: none;
+        transition: border-color 0.3s;
+    }
+
+    /* Muda a borda quando o input está em foco */
+    input[type="text"]:focus {
+        border-color: #007BFF;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+
+    /* Adiciona um espaçamento extra para inputs dentro de formulários */
+    .form-group {
+        margin-bottom: 15px;
+    }
