@@ -40,6 +40,12 @@ public class ControllerGeral {
         return mv;
     }
 
+    @GetMapping("consulta3")
+    public ModelAndView consulta3_page() {
+        ModelAndView mv = new ModelAndView("consulta3_input");
+        return mv;
+    }
+
     @GetMapping("consulta3/{nomecliente}")
     public ModelAndView consulta3(@PathVariable("nomecliente") String nomecliente) {
         ModelAndView mv = new ModelAndView("consulta3");
