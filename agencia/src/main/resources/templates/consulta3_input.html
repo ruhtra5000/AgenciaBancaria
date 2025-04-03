@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agencia Bancaria</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section>
+
+        <h1>Consulta 3</h1>
+        <p><b>Descrição: </b>Histórico de transações</p>
+
+        <form onsubmit="redirectToRoute(event)" class="form-group">
+
+            <input type="text" id="inputText" name="text" placeholder="Insira o nome do cliente" required>
+            <button type="submit">Enviar</button>
+
+        </form>
+
+    </section>
+</body>
+
+<script>
+    function redirectToRoute(event) {
+        event.preventDefault();
+        const inputText = document.getElementById('inputText').value;
+        window.location.href = `/consulta3/${encodeURIComponent(inputText)}`;
+    }
+</script>
+
+</html>
