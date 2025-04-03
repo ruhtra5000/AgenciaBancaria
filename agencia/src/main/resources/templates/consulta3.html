@@ -3,34 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="file.css">
     <title>Agencia Bancaria</title>
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <section>
-    <h1>Consulta 3</h1>
-    <p><b>Descrição: </b>Histórico de transações</p>
+        <h1>Consulta 3</h1>
+        <p><b>Descrição: </b>Histórico de transações</p>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Nome do Cliente</th>
-                <th>Número da Conta</th>
-                <th>Data da Transação</th>
-                <th>Valor</th>
-                <th>Tipo de Transação</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="transacao : ${transacoes}">
-                <td th:text="${transacao[1]}"></td>
-                <td th:text="${transacao[2]}"></td>
-                <td th:text="${transacao[3]}"></td>
-                <td th:text="${transacao[4]}"></td>
-                <td th:text="${transacao[5]}"></td>
-            </tr>
-        </tbody>
-    </table>
+        <!-- Input -->
+        <form onsubmit="redirectToRoute(event)" class="form-group">
+            <input type="text" id="inputText" name="text" placeholder="Insira o nome do cliente" required>
+            <button type="submit">Enviar</button>
+        </form>
+
+
+        <!-- Cliente / Conta -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome do Cliente</th>
+                    <th>Número da Conta</th>
+                </tr>
+            </thead>
+            <tbody th:if="${not #lists.isEmpty(transacoes)}">
+                <tr>
+                    <td th:text="${transacoes[0][1]}"></td>
+                    <td th:text="${transacoes[0][2]}"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Transações -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Data da Transação</th>
+                    <th>Valor</th>
+                    <th>Tipo de Transação</th>
+                </tr>
+            </thead>
+            <tbody th:if="${not #lists.isEmpty(transacoes)}">
+                <tr th:each="transacao : ${transacoes}">
+                    <td th:text="${transacao[3]}"></td>
+                    <td th:text="${transacao[4]}"></td>
+                    <td th:text="${transacao[5]}"></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </section>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        section {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ddd;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+            transition: 0.3s;
+        }
+
+        .linha {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Estilização do input de texto */
+        input[type="text"] {
+            width: 100%;
+            /* Ocupará toda a largura disponível */
+            max-width: 400px;
+            /* Máximo de 400px para não ficar muito grande */
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        /* Muda a borda quando o input está em foco */
+        input[type="text"]:focus {
+            border-color: #007BFF;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        /* Adiciona um espaçamento extra para inputs dentro de formulários */
+        .form-group {
+            margin-bottom: 15px;
+        }
+    </style>
 </body>
+
+<script>
+    function redirectToRoute(event) {
+        event.preventDefault();
+        const inputText = document.getElementById('inputText').value;
+        window.location.href = `/consulta3/${encodeURIComponent(inputText)}`;
+    }
+</script>
+
 </html>
